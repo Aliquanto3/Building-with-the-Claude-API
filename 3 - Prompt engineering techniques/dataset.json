@@ -1,0 +1,50 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "68 kg",
+      "goal": "Marathon preparation with carbohydrate loading and hydration optimization",
+      "restrictions": "None"
+    },
+    "solution_criteria": [
+      "Meal plan covers all three meals plus snacks for one full day",
+      "Emphasizes high carbohydrate content (60-70% of calories) appropriate for endurance training",
+      "Includes specific hydration recommendations throughout the day",
+      "Provides realistic portion sizes and timing suitable for a marathon runner's training schedule"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for an athlete",
+    "scenario": "Testing with a high-endurance athlete (marathon runner) requiring maximum carbohydrate loading and hydration focus"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "85 kg",
+      "goal": "muscle gain and strength improvement for weightlifting competition",
+      "restrictions": "none"
+    },
+    "solution_criteria": [
+      "Meal plan covers all 3+ meals distributed throughout the day with protein intake optimized around training windows",
+      "Total daily protein meets minimum 1.6-2.2g per kg bodyweight (136-187g for this athlete)",
+      "Includes specific meal timing recommendations relative to workout for muscle recovery",
+      "Plan is compact and presented in a clear, easy-to-follow 1-day format"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for an athlete",
+    "scenario": "Testing with a strength/power athlete (weightlifter) emphasizing protein intake and muscle recovery timing throughout the day"
+  },
+  {
+    "prompt_inputs": {
+      "height": "182 cm",
+      "weight": "78 kg",
+      "goal": "Optimize energy and recovery for soccer player with two training sessions (morning 9am and evening 6pm)",
+      "restrictions": "Vegetarian, no nuts"
+    },
+    "solution_criteria": [
+      "Meal plan includes 4-5 meals/snacks strategically timed around both training sessions",
+      "Meals are compact and concise (brief descriptions, not lengthy recipes)",
+      "Appropriate macronutrient balance for soccer athlete energy demands and recovery",
+      "All meals respect vegetarian diet and nut-free restrictions"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for an athlete",
+    "scenario": "Testing with a sport-specific scenario (soccer player with two training sessions) requiring energy management and meal timing around practice schedules"
+  }
+]

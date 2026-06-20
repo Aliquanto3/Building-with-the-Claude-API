@@ -1,0 +1,50 @@
+[
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in machine learning have revolutionized natural language processing, with transformer architectures enabling significant improvements in language understanding tasks. Within this domain, attention mechanisms serve as a fundamental component, allowing models to weight the importance of different input tokens dynamically. Furthermore, pre-training strategies such as masked language modeling have proven essential for developing robust representations. These techniques have cascading applications: sentiment analysis systems now achieve 96% accuracy on benchmark datasets, machine translation models reduce error rates through back-translation data augmentation, and question-answering systems leverage contextual embeddings to improve semantic matching. The underlying neural network optimization, particularly gradient descent variants and learning rate scheduling, remains critical infrastructure supporting these downstream applications."
+    },
+    "solution_criteria": [
+      "Distinguishes between main topics (machine learning, natural language processing, transformer architectures) and subtopics/components (attention mechanisms, pre-training strategies, gradient descent)",
+      "Includes application areas (sentiment analysis, machine translation, question-answering) as separate topics from core technical concepts",
+      "Avoids redundancy by not listing both general parent topics and their specific technical implementations as equal-weight items"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with a passage containing overlapping and hierarchical topics to evaluate if the model distinguishes between main topics and subtopics"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in bioremediaton leverage enzymatic pathways to degrade persistent organic pollutants in contaminated soil ecosystems. Laccase, a copper-containing oxidoreductase enzyme derived from fungal species, catalyzes the oxidation of phenolic compounds and aromatic amines through a radical-based mechanism. The thermodynamic stability of these reactions is enhanced when combined with mediator molecules such as 2,2'-azinobis(3-ethylbenzothiazoline-6-sulfonate), which facilitates electron transfer in chemically complex matrices. Field applications in acid mine drainage remediation demonstrate that microbial consortia incorporating Acidithiobacillus ferrooxidans can simultaneously oxidize iron sulfides while precipitating heavy metals as insoluble hydroxides, thereby reducing bioavailability and ecological toxicity in aquatic habitats adjacent to mining operations."
+    },
+    "solution_criteria": [
+      "Extracts all distinct topics spanning biology, chemistry, and environmental science domains",
+      "Correctly identifies cross-domain terminology (e.g., enzyme names, chemical compounds, ecological processes) as separate topics",
+      "Returns results as a valid JSON array of strings with no duplicates"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with interdisciplinary content mixing fields like biology, chemistry, and environmental science to assess handling of cross-domain terminology"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in neuroplasticity research have demonstrated that cognitive training interventions can induce measurable structural changes in the prefrontal cortex, particularly in regions associated with executive function. While explicit discussion of aging is limited to a single sentence mentioning elderly populations, the implications for age-related cognitive decline are substantial. The study employed diffusion tensor imaging to quantify white matter integrity, revealing that participants engaging in 12 weeks of working memory exercises exhibited increased fractional anisotropy values. These findings suggest that neural adaptation mechanisms, traditionally considered fixed after early adulthood, remain malleable throughout the lifespan. Furthermore, the relationship between training intensity and cortical reorganization points toward underlying neurochemical processes involving BDNF signaling, though such molecular mechanisms are not directly examined in this investigation."
+    },
+    "solution_criteria": [
+      "Extracts both explicitly stated topics (neuroplasticity, cognitive training, prefrontal cortex, white matter integrity, diffusion tensor imaging, working memory) and implicit topics requiring inference (aging/lifespan development, neural adaptation, BDNF signaling, neurochemical processes)",
+      "Organizes extracted topics into a valid JSON array of strings",
+      "Avoids including methodological details (12 weeks, 24% improvement) as standalone topics unless they represent core subject matter"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with a dense passage containing implicit topics requiring inference versus explicit topics clearly stated, measuring topic extraction accuracy"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in CRISPR-Cas9 gene editing have demonstrated significant improvements in off-target mitigation through high-fidelity variants and modified sgRNA designs. The mechanism involves PAM-adjacent nucleotide discrimination, reducing unintended genomic modifications by 95% in HEK293T cell lines. Simultaneously, base editing technology, particularly cytosine-to-thymine conversion via deaminase fusion proteins, has emerged as a complementary approach for correcting point mutations associated with genetic disorders. Integration of machine learning algorithms for gRNA design optimization and thermodynamic modeling of RNA-DNA hybridization has further enhanced specificity metrics, enabling therapeutic applications in ex vivo T-cell engineering and in vivo liver-directed gene therapy protocols."
+    },
+    "solution_criteria": [
+      "Correctly identifies all major technical topics including CRISPR-Cas9, off-target mitigation, base editing, and machine learning applications",
+      "Extracts domain-specific terminology and acronyms (CRISPR-Cas9, PAM, sgRNA, HEK293T, gRNA) as relevant topics",
+      "Distinguishes between core methodologies and application domains (gene editing mechanisms vs. therapeutic applications)"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with a passage including domain-specific jargon, acronyms, and technical terminology to verify correct identification of specialized topics"
+  }
+]

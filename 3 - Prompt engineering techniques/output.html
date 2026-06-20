@@ -1,0 +1,270 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">4</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">8.5 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">75.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a dense passage containing implicit topics requiring inference versus explicit topics clearly stated, measuring topic extraction accuracy</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in neuroplasticity research have demonstrated that cognitive training interventions can induce measurable structural changes in the prefrontal cortex, particularly in regions associated with executive function. While explicit discussion of aging is limited to a single sentence mentioning elderly populations, the implications for age-related cognitive decline are substantial. The study employed diffusion tensor imaging to quantify white matter integrity, revealing that participants engaging in 12 weeks of working memory exercises exhibited increased fractional anisotropy values. These findings suggest that neural adaptation mechanisms, traditionally considered fixed after early adulthood, remain malleable throughout the lifespan. Furthermore, the relationship between training intensity and cortical reorganization points toward underlying neurochemical processes involving BDNF signaling, though such molecular mechanisms are not directly examined in this investigation.</td>
+                <td class="criteria">• Extracts both explicitly stated topics (neuroplasticity, cognitive training, prefrontal cortex, white matter integrity, diffusion tensor imaging, working memory) and implicit topics requiring inference (aging/lifespan development, neural adaptation, BDNF signaling, neurochemical processes)<br>• Organizes extracted topics into a valid JSON array of strings<br>• Avoids including methodological details (12 weeks, 24% improvement) as standalone topics unless they represent core subject matter</td>
+                <td class="output"><pre>```json
+[
+  "neuroplasticity research",
+  "cognitive training interventions",
+  "structural changes",
+  "prefrontal cortex",
+  "executive function",
+  "aging",
+  "age-related cognitive decline",
+  "diffusion tensor imaging",
+  "white matter integrity",
+  "working memory exercises",
+  "fractional anisotropy",
+  "neural adaptation mechanisms",
+  "cortical reorganization",
+  "neurochemical processes",
+  "BDNF signaling"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it contains a valid JSON array of strings with topics only, no extra commentary, and nothing but the JSON array in the response. It successfully extracts both explicitly stated topics and those requiring inference from context. The extraction demonstrates good judgment in distinguishing between core topics and methodological details. The 15 topics extracted represent a thorough and well-balanced coverage of the passage's content. Minor weaknesses around topic granularity and potential redundancy are negligible given the task's inherent subjectivity in topic definition.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing overlapping and hierarchical topics to evaluate if the model distinguishes between main topics and subtopics</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in machine learning have revolutionized natural language processing, with transformer architectures enabling significant improvements in language understanding tasks. Within this domain, attention mechanisms serve as a fundamental component, allowing models to weight the importance of different input tokens dynamically. Furthermore, pre-training strategies such as masked language modeling have proven essential for developing robust representations. These techniques have cascading applications: sentiment analysis systems now achieve 96% accuracy on benchmark datasets, machine translation models reduce error rates through back-translation data augmentation, and question-answering systems leverage contextual embeddings to improve semantic matching. The underlying neural network optimization, particularly gradient descent variants and learning rate scheduling, remains critical infrastructure supporting these downstream applications.</td>
+                <td class="criteria">• Distinguishes between main topics (machine learning, natural language processing, transformer architectures) and subtopics/components (attention mechanisms, pre-training strategies, gradient descent)<br>• Includes application areas (sentiment analysis, machine translation, question-answering) as separate topics from core technical concepts<br>• Avoids redundancy by not listing both general parent topics and their specific technical implementations as equal-weight items</td>
+                <td class="output"><pre>```json
+[
+  "machine learning",
+  "natural language processing",
+  "transformer architectures",
+  "language understanding",
+  "attention mechanisms",
+  "input tokens",
+  "pre-training strategies",
+  "masked language modeling",
+  "sentiment analysis",
+  "machine translation",
+  "back-translation data augmentation",
+  "question-answering systems",
+  "contextual embeddings",
+  "semantic matching",
+  "neural network optimization",
+  "gradient descent variants",
+  "learning rate scheduling"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-medium">6</span></td>
+                <td class="reasoning">The solution meets all three mandatory requirements: it is a valid JSON array of strings, contains only topic names without commentary, and includes nothing but the JSON array. However, it has notable deficiencies in the secondary criteria regarding topic hierarchy and redundancy. The solution treats some subtopics and implementation details as equal-weight main topics, and includes some items that are techniques or outcomes rather than substantive topics. A more rigorous solution would consolidate 'neural network optimization' with its variants, remove 'input tokens' as a standalone item, and reconsider whether 'semantic matching' and 'back-translation data augmentation' warrant inclusion as primary topics. Despite these issues, the solution is comprehensive and functional.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with interdisciplinary content mixing fields like biology, chemistry, and environmental science to assess handling of cross-domain terminology</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in bioremediaton leverage enzymatic pathways to degrade persistent organic pollutants in contaminated soil ecosystems. Laccase, a copper-containing oxidoreductase enzyme derived from fungal species, catalyzes the oxidation of phenolic compounds and aromatic amines through a radical-based mechanism. The thermodynamic stability of these reactions is enhanced when combined with mediator molecules such as 2,2'-azinobis(3-ethylbenzothiazoline-6-sulfonate), which facilitates electron transfer in chemically complex matrices. Field applications in acid mine drainage remediation demonstrate that microbial consortia incorporating Acidithiobacillus ferrooxidans can simultaneously oxidize iron sulfides while precipitating heavy metals as insoluble hydroxides, thereby reducing bioavailability and ecological toxicity in aquatic habitats adjacent to mining operations.</td>
+                <td class="criteria">• Extracts all distinct topics spanning biology, chemistry, and environmental science domains<br>• Correctly identifies cross-domain terminology (e.g., enzyme names, chemical compounds, ecological processes) as separate topics<br>• Returns results as a valid JSON array of strings with no duplicates</td>
+                <td class="output"><pre>```json
+[
+  "bioremediation",
+  "enzymatic pathways",
+  "persistent organic pollutants",
+  "contaminated soil ecosystems",
+  "laccase",
+  "copper-containing oxidoreductase enzyme",
+  "fungal species",
+  "phenolic compounds",
+  "aromatic amines",
+  "radical-based mechanism",
+  "thermodynamic stability",
+  "mediator molecules",
+  "2,2'-azinobis(3-ethylbenzothiazoline-6-sulfonate)",
+  "electron transfer",
+  "chemically complex matrices",
+  "acid mine drainage remediation",
+  "microbial consortia",
+  "Acidithiobacillus ferrooxidans",
+  "iron sulfides oxidation",
+  "heavy metals precipitation",
+  "insoluble hydroxides",
+  "bioavailability",
+  "ecological toxicity",
+  "aquatic habitats",
+  "mining operations"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it provides a valid JSON array of strings containing topics from the passage, with no duplicates and no extraneous commentary. The response is JSON-only as required. Regarding secondary criteria, the solution successfully extracts topics spanning biology, chemistry, and environmental science domains and correctly identifies cross-domain terminology. However, there is some over-extraction of granular details that could be considered sub-topics or descriptors rather than distinct topics (e.g., 'copper-containing oxidoreductase enzyme' as separate from 'laccase'). Despite this minor issue in topic granularity, the solution comprehensively covers the essential concepts and meets all stated criteria effectively.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage including domain-specific jargon, acronyms, and technical terminology to verify correct identification of specialized topics</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in CRISPR-Cas9 gene editing have demonstrated significant improvements in off-target mitigation through high-fidelity variants and modified sgRNA designs. The mechanism involves PAM-adjacent nucleotide discrimination, reducing unintended genomic modifications by 95% in HEK293T cell lines. Simultaneously, base editing technology, particularly cytosine-to-thymine conversion via deaminase fusion proteins, has emerged as a complementary approach for correcting point mutations associated with genetic disorders. Integration of machine learning algorithms for gRNA design optimization and thermodynamic modeling of RNA-DNA hybridization has further enhanced specificity metrics, enabling therapeutic applications in ex vivo T-cell engineering and in vivo liver-directed gene therapy protocols.</td>
+                <td class="criteria">• Correctly identifies all major technical topics including CRISPR-Cas9, off-target mitigation, base editing, and machine learning applications<br>• Extracts domain-specific terminology and acronyms (CRISPR-Cas9, PAM, sgRNA, HEK293T, gRNA) as relevant topics<br>• Distinguishes between core methodologies and application domains (gene editing mechanisms vs. therapeutic applications)</td>
+                <td class="output"><pre>```json
+[
+  "CRISPR-Cas9 gene editing",
+  "off-target mitigation",
+  "high-fidelity variants",
+  "sgRNA designs",
+  "PAM-adjacent nucleotide discrimination",
+  "genomic modifications",
+  "HEK293T cell lines",
+  "base editing technology",
+  "cytosine-to-thymine conversion",
+  "deaminase fusion proteins",
+  "point mutations",
+  "genetic disorders",
+  "machine learning algorithms",
+  "gRNA design optimization",
+  "thermodynamic modeling",
+  "RNA-DNA hybridization",
+  "specificity metrics",
+  "ex vivo T-cell engineering",
+  "in vivo liver-directed gene therapy"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">10</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array containing only strings with no commentary, and the response contains only the JSON array. It also meets all secondary criteria by correctly identifying all major technical topics (CRISPR-Cas9, off-target mitigation, base editing, machine learning), extracting relevant domain-specific terminology and acronyms, and distinguishing between methodologies and applications. The extraction is thorough and well-organized, capturing the scholarly article's key concepts at an appropriate level of granularity.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
