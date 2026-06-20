@@ -1,0 +1,17 @@
+[
+  {
+    "task": "Parse an AWS CloudFormation template and extract all resource logical IDs that are of type 'AWS::S3::Bucket'",
+    "format": "python",
+    "solution_criteria": "A function that takes a CloudFormation template (as a dict or JSON string) and returns a list of logical IDs for all S3 bucket resources. Should handle both JSON and YAML formats if provided as strings."
+  },
+  {
+    "task": "Create a JSON policy document that allows an IAM user to read and list objects in a specific S3 bucket named 'my-data-bucket'",
+    "format": "json",
+    "solution_criteria": "A valid AWS IAM policy JSON object with appropriate actions (s3:GetObject, s3:ListBucket) and resources restricted to the specified bucket and its contents. Must be syntactically valid and follow AWS policy structure."
+  },
+  {
+    "task": "Create a regex pattern that matches valid AWS EC2 instance IDs (format: i-followed by 8 or 17 hexadecimal characters)",
+    "format": "regex",
+    "solution_criteria": "A regex pattern that correctly matches EC2 instance IDs like 'i-0a1b2c3d' and 'i-0a1b2c3d4e5f6g7h8', but rejects invalid formats. Should be case-insensitive for hex characters."
+  }
+]

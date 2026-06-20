@@ -1,0 +1,14 @@
+[
+  {
+    "task": "Parse an AWS S3 bucket name from an S3 URI in the format 's3://bucket-name/key/path' and extract just the bucket name",
+    "format": "regex"
+  },
+  {
+    "task": "Create a JSON CloudFormation template that defines a basic AWS Lambda function with a simple inline code that returns 'Hello from Lambda'",
+    "format": "json"
+  },
+  {
+    "task": "Write a Python function that takes an AWS IAM policy document (as a dictionary) and returns a list of all the actions granted in the policy",
+    "format": "python"
+  }
+]
