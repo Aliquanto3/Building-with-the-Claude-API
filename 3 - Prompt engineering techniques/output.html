@@ -117,7 +117,7 @@
                 </div>
                 <div class="stat-box">
                     <div>Average Score</div>
-                    <div class="stat-value">8.5 / 10</div>
+                    <div class="stat-value">8.0 / 10</div>
                 </div>
                 <div class="stat-box">
                     <div>Pass Rate (≥7)</div>
@@ -145,25 +145,25 @@
                 <td class="criteria">• Extracts both explicitly stated topics (neuroplasticity, cognitive training, prefrontal cortex, white matter integrity, diffusion tensor imaging, working memory) and implicit topics requiring inference (aging/lifespan development, neural adaptation, BDNF signaling, neurochemical processes)<br>• Organizes extracted topics into a valid JSON array of strings<br>• Avoids including methodological details (12 weeks, 24% improvement) as standalone topics unless they represent core subject matter</td>
                 <td class="output"><pre>```json
 [
-  "neuroplasticity research",
-  "cognitive training interventions",
-  "structural changes",
+  "neuroplasticity",
+  "cognitive training",
   "prefrontal cortex",
   "executive function",
   "aging",
+  "elderly populations",
   "age-related cognitive decline",
   "diffusion tensor imaging",
   "white matter integrity",
-  "working memory exercises",
+  "working memory",
   "fractional anisotropy",
-  "neural adaptation mechanisms",
+  "neural adaptation",
   "cortical reorganization",
   "neurochemical processes",
   "BDNF signaling"
 ]
 ```</pre></td>
                 <td class="score-col"><span class="score score-high">9</span></td>
-                <td class="reasoning">The solution fully satisfies all mandatory requirements: it contains a valid JSON array of strings with topics only, no extra commentary, and nothing but the JSON array in the response. It successfully extracts both explicitly stated topics and those requiring inference from context. The extraction demonstrates good judgment in distinguishing between core topics and methodological details. The 15 topics extracted represent a thorough and well-balanced coverage of the passage's content. Minor weaknesses around topic granularity and potential redundancy are negligible given the task's inherent subjectivity in topic definition.</td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it provides a valid JSON array of strings containing topics from the article with no extraneous commentary. It successfully identifies both explicitly stated topics and those requiring inference, demonstrating strong comprehension of the passage. The extraction balances specificity with relevance, avoiding pure methodological details while retaining scientifically significant concepts. Minor redundancy exists with 'elderly populations' being somewhat subsumed by 'aging,' but this is a marginal issue that doesn't violate core criteria. The solution demonstrates excellent alignment with the secondary criteria regarding topic extraction quality and organization.</td>
             </tr>
         
             <tr>
@@ -177,7 +177,6 @@
   "transformer architectures",
   "language understanding",
   "attention mechanisms",
-  "input tokens",
   "pre-training strategies",
   "masked language modeling",
   "sentiment analysis",
@@ -187,12 +186,12 @@
   "contextual embeddings",
   "semantic matching",
   "neural network optimization",
-  "gradient descent variants",
+  "gradient descent",
   "learning rate scheduling"
 ]
 ```</pre></td>
                 <td class="score-col"><span class="score score-medium">6</span></td>
-                <td class="reasoning">The solution meets all three mandatory requirements: it is a valid JSON array of strings, contains only topic names without commentary, and includes nothing but the JSON array. However, it has notable deficiencies in the secondary criteria regarding topic hierarchy and redundancy. The solution treats some subtopics and implementation details as equal-weight main topics, and includes some items that are techniques or outcomes rather than substantive topics. A more rigorous solution would consolidate 'neural network optimization' with its variants, remove 'input tokens' as a standalone item, and reconsider whether 'semantic matching' and 'back-translation data augmentation' warrant inclusion as primary topics. Despite these issues, the solution is comprehensive and functional.</td>
+                <td class="reasoning">The solution successfully meets all mandatory requirements: it is a valid JSON array containing only topic strings with no commentary. However, it fails to adequately address the secondary criteria regarding hierarchical organization. The criteria explicitly state to 'avoid redundancy by not listing both general parent topics and their specific technical implementations as equal-weight items,' yet the solution lists 'neural network optimization' alongside its subtopics 'gradient descent' and 'learning rate scheduling' as peers. Similarly, 'pre-training strategies' and 'masked language modeling' are listed separately despite the latter being a specific implementation of the former. While the solution is comprehensive, it lacks the discriminating structure that the secondary criteria demand.</td>
             </tr>
         
             <tr>
@@ -201,11 +200,11 @@
                 <td class="criteria">• Extracts all distinct topics spanning biology, chemistry, and environmental science domains<br>• Correctly identifies cross-domain terminology (e.g., enzyme names, chemical compounds, ecological processes) as separate topics<br>• Returns results as a valid JSON array of strings with no duplicates</td>
                 <td class="output"><pre>```json
 [
-  "bioremediation",
+  "bioremediaton",
   "enzymatic pathways",
   "persistent organic pollutants",
   "contaminated soil ecosystems",
-  "laccase",
+  "Laccase",
   "copper-containing oxidoreductase enzyme",
   "fungal species",
   "phenolic compounds",
@@ -215,12 +214,11 @@
   "mediator molecules",
   "2,2'-azinobis(3-ethylbenzothiazoline-6-sulfonate)",
   "electron transfer",
-  "chemically complex matrices",
   "acid mine drainage remediation",
   "microbial consortia",
   "Acidithiobacillus ferrooxidans",
-  "iron sulfides oxidation",
-  "heavy metals precipitation",
+  "iron sulfides",
+  "heavy metals",
   "insoluble hydroxides",
   "bioavailability",
   "ecological toxicity",
@@ -228,8 +226,8 @@
   "mining operations"
 ]
 ```</pre></td>
-                <td class="score-col"><span class="score score-high">9</span></td>
-                <td class="reasoning">The solution fully satisfies all mandatory requirements: it provides a valid JSON array of strings containing topics from the passage, with no duplicates and no extraneous commentary. The response is JSON-only as required. Regarding secondary criteria, the solution successfully extracts topics spanning biology, chemistry, and environmental science domains and correctly identifies cross-domain terminology. However, there is some over-extraction of granular details that could be considered sub-topics or descriptors rather than distinct topics (e.g., 'copper-containing oxidoreductase enzyme' as separate from 'laccase'). Despite this minor issue in topic granularity, the solution comprehensively covers the essential concepts and meets all stated criteria effectively.</td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it provides a valid JSON array of strings with no duplicates, contains only topic names without commentary, and returns only the JSON array. It successfully extracts topics spanning all three required domains and identifies cross-domain terminology. However, the inclusion of the typographical error 'bioremediaton' and some overly descriptive multi-word phrases (rather than distinct topics) represent minor deficiencies in topic extraction quality. The solution is functionally correct but could be more refined in distinguishing between primary topics and their descriptors.</td>
             </tr>
         
             <tr>
@@ -245,7 +243,7 @@
   "PAM-adjacent nucleotide discrimination",
   "genomic modifications",
   "HEK293T cell lines",
-  "base editing technology",
+  "base editing",
   "cytosine-to-thymine conversion",
   "deaminase fusion proteins",
   "point mutations",
@@ -259,8 +257,8 @@
   "in vivo liver-directed gene therapy"
 ]
 ```</pre></td>
-                <td class="score-col"><span class="score score-high">10</span></td>
-                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array containing only strings with no commentary, and the response contains only the JSON array. It also meets all secondary criteria by correctly identifying all major technical topics (CRISPR-Cas9, off-target mitigation, base editing, machine learning), extracting relevant domain-specific terminology and acronyms, and distinguishing between methodologies and applications. The extraction is thorough and well-organized, capturing the scholarly article's key concepts at an appropriate level of granularity.</td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array containing only topic strings with no commentary. It also meets all secondary criteria by identifying major technical topics (CRISPR-Cas9, off-target mitigation, base editing, machine learning), extracting relevant domain-specific terminology and acronyms, and distinguishing between methodologies and applications. The extraction is thorough and accurate, with only minor conceptual overlaps that do not significantly detract from the overall quality.</td>
             </tr>
         
             </tbody>
